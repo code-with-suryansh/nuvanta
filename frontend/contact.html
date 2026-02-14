@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Nuvanta Technologies</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= ROOT ================= */
+
+:root{
+    --primary:#00cfff;
+    --bg-dark:#050b18;
+    --bg-secondary:#071428;
+    --text-light:#9fb3c8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg-dark);
+    color:white;
+    overflow-x:hidden;
+}
+
+h1,h2,h3{
+    font-family:'Poppins',sans-serif;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:linear-gradient(270deg,#050b18,#071428,#0a1f3c,#071428);
+    background-size:600% 600%;
+    animation:bgMove 18s ease infinite;
+    z-index:-3;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    width:100%;
+    padding:18px 0;
+    backdrop-filter:blur(12px);
+    background:rgba(5,11,24,0.6);
+    z-index:1000;
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-weight:800;
+    font-size:20px;
+    background:linear-gradient(90deg,#00a6ff,#00e0ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#cbd6e2;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding-top:150px;
+    padding-bottom:60px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(30px,5vw,60px);
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#ffffff,#00d4ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--text-light);
+}
+
+/* ================= CONTACT GRID ================= */
+
+.contact-section{
+    padding:80px 0;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+}
+
+/* ================= FORM ================= */
+
+.form-box{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    padding:40px;
+    border-radius:20px;
+    border:1px solid rgba(0,200,255,0.15);
+}
+
+.form-box input,
+.form-box textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:none;
+    background:#0c1c32;
+    color:white;
+}
+
+.form-box textarea{
+    resize:none;
+    height:120px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 28px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#00a6ff,#00d4ff);
+    color:white;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ================= INFO BOX ================= */
+
+.info-box{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    padding:40px;
+    border-radius:20px;
+    border:1px solid rgba(0,200,255,0.15);
+}
+
+.info-box h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.info-box p{
+    color:var(--text-light);
+    margin-bottom:10px;
+}
+
+.social{
+    margin-top:20px;
+}
+
+.social a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:white;
+    text-decoration:none;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.social a:hover{
+    color:var(--primary);
+}
+
+/* ================= FAQ ================= */
+
+.faq{
+    padding:80px 0;
+}
+
+.faq-item{
+    margin-bottom:15px;
+    background:rgba(255,255,255,0.05);
+    padding:20px;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.faq-item h4{
+    color:var(--primary);
+}
+
+.faq-item p{
+    display:none;
+    margin-top:10px;
+    color:var(--text-light);
+}
+
+/* ================= CHAT BUTTON ================= */
+
+.chat-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:linear-gradient(90deg,#00a6ff,#00d4ff);
+    padding:15px 18px;
+    border-radius:50%;
+    box-shadow:0 0 25px rgba(0,200,255,0.5);
+    cursor:pointer;
+    z-index:1000;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:30px 0;
+    text-align:center;
+    color:#7d93aa;
+    font-size:13px;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container nav-inner">
+    <a href="index.html"><div class="logo"> NUVANTA </div></a>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sirvices.html">Services</a></li>
+        <li><a href="pcb.html">PCB</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+    <h1>Contact Us</h1>
+    <p>Let’s build something powerful together.</p>
+</div>
+</section>
+
+<section class="contact-section">
+<div class="container">
+<div class="grid">
+
+<div class="form-box">
+<h3>Send a Message</h3>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+<button class="btn">Send Message</button>
+</div>
+
+<div class="info-box">
+<h3>Get in Touch</h3>
+
+<div class="social">
+<h3>Instagram</h3>
+<a href="https://www.instagram.com/namonuvanta/"><span>📷</span> @namonuvanta</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="faq">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:40px;">FAQ</h2>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>How long does PCB fabrication take?</h4>
+<p>Typically 5–10 working days depending on complexity and quantity.</p>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>Do you provide assembly services?</h4>
+<p>Assembly services are planned for future release.</p>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<h4>Can I request custom web applications?</h4>
+<p>Yes, we develop custom digital platforms based on requirements.</p>
+</div>
+
+</div>
+</section>
+
+<div class="chat-btn" onclick="alert('Chat integration coming soon!')">
+💬
+</div>
+
+<footer>
+© 2026 Nuvanta Technologies
+</footer>
+
+<script>
+function toggleFAQ(element){
+    const p = element.querySelector("p");
+    p.style.display = p.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

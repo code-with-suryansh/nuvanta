@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Solutions | Nuvanta Technologies</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= ROOT ================= */
+
+:root{
+    --primary:#00cfff;
+    --bg-dark:#050b18;
+    --bg-secondary:#071428;
+    --text-light:#9fb3c8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg-dark);
+    color:white;
+    overflow-x:hidden;
+}
+
+h1,h2,h3{
+    font-family:'Poppins',sans-serif;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:linear-gradient(270deg,#050b18,#071428,#0a1f3c,#071428);
+    background-size:600% 600%;
+    animation:bgMove 18s ease infinite;
+    z-index:-3;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    width:100%;
+    padding:18px 0;
+    backdrop-filter:blur(12px);
+    background:rgba(5,11,24,0.6);
+    z-index:1000;
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-weight:800;
+    font-size:20px;
+    background:linear-gradient(90deg,#00a6ff,#00e0ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#cbd6e2;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding-top:150px;
+    padding-bottom:60px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(30px,5vw,60px);
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#ffffff,#00d4ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--text-light);
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+    padding:80px 0;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border-radius:20px;
+    padding:30px;
+    border:1px solid rgba(0,200,255,0.15);
+    transition:.4s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 40px rgba(0,200,255,0.4);
+    border-color:var(--primary);
+}
+
+.service-card h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.service-card p{
+    color:var(--text-light);
+    font-size:14px;
+}
+
+/* ================= PROCESS SECTION ================= */
+
+.process{
+    padding:80px 0;
+    background:var(--bg-secondary);
+    text-align:center;
+}
+
+.process h2{
+    margin-bottom:50px;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+.step{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:15px;
+}
+
+.step h4{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:40px;
+    background:linear-gradient(90deg,#00a6ff,#00d4ff);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:30px 0;
+    text-align:center;
+    color:#7d93aa;
+    font-size:13px;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container nav-inner">
+   <a href="index.html"><div class="logo"> NUVANTA </div></a>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sirvices.html">Services</a></li>
+        <li><a href="pcb.html">PCB</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+    <h1>Digital Solutions</h1>
+    <p>Modern web platforms and scalable automation systems.</p>
+</div>
+</section>
+
+<section class="services">
+<div class="container">
+<div class="grid">
+
+<div class="service-card">
+<h3>Website Development</h3>
+<p>Modern, responsive and high-performance websites built for business growth.</p>
+</div>
+
+<div class="service-card">
+<h3>Web Applications</h3>
+<p>Custom dashboards, management systems and SaaS platforms.</p>
+</div>
+
+<div class="service-card">
+<h3>Business Automation</h3>
+<p>Workflow automation, system integration and process optimization.</p>
+</div>
+
+<div class="service-card">
+<h3>Technical Consulting</h3>
+<p>Architecture planning, technology selection and system strategy.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="process">
+<div class="container">
+<h2>Our Process</h2>
+
+<div class="steps">
+
+<div class="step">
+<h4>01. Requirement Analysis</h4>
+<p>Understanding your technical and business needs.</p>
+</div>
+
+<div class="step">
+<h4>02. Architecture Planning</h4>
+<p>Designing scalable and efficient systems.</p>
+</div>
+
+<div class="step">
+<h4>03. Development</h4>
+<p>Clean coding with performance optimization.</p>
+</div>
+
+<div class="step">
+<h4>04. Deployment & Support</h4>
+<p>Secure deployment and continuous improvement.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="cta">
+<h2>Ready to Build Something Powerful?</h2>
+<br>
+<a href="#" class="btn">Start a Project</a>
+</section>
+
+<footer>
+© 2026 Nuvanta Technologies
+</footer>
+
+</body>
+</html>
