@@ -158,7 +158,29 @@ nav ul li a:hover{
     font-size:14px;
 }
 
-/* ================= PROCESS SECTION ================= */
+.price{
+margin-top:15px;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.btn{
+display:inline-block;
+padding:12px 28px;
+border-radius:40px;
+background:linear-gradient(90deg,#00a6ff,#00d4ff);
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+cursor:pointer;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+/* ================= PROCESS ================= */
 
 .process{
     padding:80px 0;
@@ -194,21 +216,6 @@ nav ul li a:hover{
     text-align:center;
 }
 
-.btn{
-    display:inline-block;
-    padding:14px 32px;
-    border-radius:40px;
-    background:linear-gradient(90deg,#00a6ff,#00d4ff);
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-4px);
-}
-
 /* ================= FOOTER ================= */
 
 footer{
@@ -224,21 +231,23 @@ footer{
 
 <nav>
 <div class="container nav-inner">
-   <a href="index.html"><div class="logo"> NUVANTA </div></a>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sirvices.html">Services</a></li>
-        <li><a href="pcb.html">PCB</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+<a href="index.html"><div class="logo">NUVANTA</div></a>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="sirvices.html">Services</a></li>
+<li><a href="pcb.html">PCB</a></li>
+<li><a href="store.html">Store</a></li>
+<li><a href="http://127.0.0.1:5000/cart">Cart</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
 </div>
 </nav>
 
 <section class="hero">
 <div class="container">
-    <h1>Digital Solutions</h1>
-    <p>Modern web platforms and scalable automation systems.</p>
+<h1>Digital Solutions</h1>
+<p>Modern web platforms and scalable automation systems.</p>
 </div>
 </section>
 
@@ -249,21 +258,29 @@ footer{
 <div class="service-card">
 <h3>Website Development</h3>
 <p>Modern, responsive and high-performance websites built for business growth.</p>
+<div class="price">₹3000</div>
+<a href="#" onclick="addToCart('Website Development',3000,'service')" class="btn">Book Service</a>
 </div>
 
 <div class="service-card">
 <h3>Web Applications</h3>
 <p>Custom dashboards, management systems and SaaS platforms.</p>
+<div class="price">₹5000</div>
+<a href="#" onclick="addToCart('Web Applications',5000,'service')" class="btn">Book Service</a>
 </div>
 
 <div class="service-card">
 <h3>Business Automation</h3>
 <p>Workflow automation, system integration and process optimization.</p>
+<div class="price">₹4000</div>
+<a href="#" onclick="addToCart('Business Automation',4000,'service')" class="btn">Book Service</a>
 </div>
 
 <div class="service-card">
 <h3>Technical Consulting</h3>
 <p>Architecture planning, technology selection and system strategy.</p>
+<div class="price">₹2000</div>
+<a href="#" onclick="addToCart('Technical Consulting',2000,'service')" class="btn">Book Service</a>
 </div>
 
 </div>
@@ -309,6 +326,26 @@ footer{
 <footer>
 © 2026 Nuvanta Technologies
 </footer>
+
+<script>
+
+function addToCart(name, price, type){
+
+fetch(`http://127.0.0.1:5000/add_to_cart?name=${name}&price=${price}&type=${type}`,{
+method:"GET",
+credentials:"include"
+})
+.then(res=>res.json())
+.then(data=>{
+alert("Service added to cart");
+})
+.catch(err=>{
+console.log(err);
+});
+
+}
+
+</script>
 
 </body>
 </html>

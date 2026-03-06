@@ -212,21 +212,24 @@ footer{
 
 <nav>
 <div class="container nav-inner">
-  <a href="index.html"><div class="logo"> NUVANTA </div></a>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sirvices.html">Services</a></li>
-        <li><a href="pcb.html">PCB</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+<a href="index.html"><div class="logo">NUVANTA</div></a>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="sirvices.html">Services</a></li>
+<li><a href="pcb.html">PCB</a></li>
+<li><a href="store.html">Store</a></li>
+<li><a href="http://127.0.0.1:5000/cart">Cart</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
 </div>
 </nav>
 
 <section class="hero">
 <div class="container">
-    <h1>Nuvanta Store</h1>
-    <p>Innovation tools, electronics kits and custom hardware modules.</p>
+<h1>Nuvanta Store</h1>
+<p>Innovation tools, electronics kits and custom hardware modules.</p>
 </div>
 </section>
 
@@ -239,7 +242,11 @@ footer{
 <h3>IoT Starter Kit</h3>
 <p>Complete beginner IoT learning bundle with ESP module and sensors.</p>
 <div class="price">₹1,499</div>
-<a href="#" class="btn">Add to Cart</a>
+
+<a href="#" onclick="addToCart('IoT Starter Kit',1499,'product')" class="btn">
+Add to Cart
+</a>
+
 </div>
 
 <div class="product-card">
@@ -247,7 +254,11 @@ footer{
 <h3>Custom PCB Prototype</h3>
 <p>Small-batch custom PCB manufacturing for engineers and startups.</p>
 <div class="price">Starts ₹999</div>
-<a href="#" class="btn">Order Now</a>
+
+<a href="#" onclick="addToCart('Custom PCB Prototype',999,'product')" class="btn">
+Order Now
+</a>
+
 </div>
 
 <div class="product-card">
@@ -275,6 +286,26 @@ footer{
 <footer>
 © 2026 Nuvanta Technologies
 </footer>
+
+<script>
+
+function addToCart(name, price, type){
+
+fetch(`http://127.0.0.1:5000/add_to_cart?name=${name}&price=${price}&type=${type}`,{
+method:"GET",
+credentials:"include"
+})
+.then(res=>res.json())
+.then(data=>{
+alert("Item added to cart");
+})
+.catch(err=>{
+console.log(err);
+});
+
+}
+
+</script>
 
 </body>
 </html>
