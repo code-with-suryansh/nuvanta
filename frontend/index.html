@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NamoNuvanta</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= ROOT ================= */
+
+:root{
+    --primary:#00cfff;
+    --bg-dark:#050b18;
+    --bg-secondary:#071428;
+    --text-light:#9fb3c8;
+}
+
+/* ================= GLOBAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg-dark);
+    color:white;
+    overflow-x:hidden;
+}
+
+h1,h2,h3{
+    font-family:'Poppins',sans-serif;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= ANIMATED GRADIENT BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:linear-gradient(270deg,#050b18,#071428,#0a1f3c,#071428);
+    background-size:600% 600%;
+    animation:bgMove 18s ease infinite;
+    z-index:-3;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    width:100%;
+    padding:18px 0;
+    backdrop-filter:blur(12px);
+    background:rgba(5,11,24,0.6);
+    z-index:1000;
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-weight:800;
+    font-size:clamp(18px,2vw,22px);
+    background:linear-gradient(90deg,#00a6ff,#00e0ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#cbd6e2;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-top:120px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:850px;
+    padding:0 20px;
+}
+
+.hero h1{
+    font-size:clamp(36px,6vw,72px);
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#ffffff,#00d4ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--text-light);
+    margin-bottom:35px;
+    font-size:clamp(14px,2vw,18px);
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:40px;
+    background:linear-gradient(90deg,#00a6ff,#00d4ff);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 0 25px rgba(0,200,255,0.4);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 35px rgba(0,200,255,0.7);
+}
+
+/* ================= PARTICLES ================= */
+
+#particles{
+    position:absolute;
+    inset:0;
+    z-index:-1;
+}
+
+/* ================= GLASS SECTION ================= */
+
+.glass-section{
+    padding:120px 0;
+}
+
+.glass-box{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border-radius:30px;
+    padding:80px 40px;
+}
+
+/* ================= FEATURES ================= */
+
+.features h2{
+    text-align:center;
+    font-size:clamp(24px,4vw,40px);
+    margin-bottom:70px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+.card{
+    position:relative;
+    background:rgba(255,255,255,0.04);
+    padding:30px;
+    border-radius:18px;
+    border:1px solid rgba(0,200,255,0.15);
+    transition:.4s;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:20px;
+    padding:2px;
+    background:linear-gradient(90deg,transparent,#00cfff,transparent);
+    background-size:200% 100%;
+    animation:borderMove 4s linear infinite;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+}
+
+@keyframes borderMove{
+    0%{background-position:0% 0}
+    100%{background-position:200% 0}
+}
+
+.card-link:hover .card{
+    transform:translateY(-10px);
+    box-shadow:0 0 40px rgba(0,200,255,0.4);
+}
+
+.card h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.card p{
+    color:var(--text-light);
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:all 1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+/* ================= ABOUT SECTION ================= */
+
+.about-section{
+    padding:120px 0;
+}
+
+.about-glass{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border-radius:30px;
+    padding:80px 40px;
+    border:1px solid rgba(0,200,255,0.1);
+    transition:.4s;
+}
+
+.about-glass:hover{
+    box-shadow:0 0 40px rgba(0,200,255,0.3);
+}
+
+.about-content{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-content h2{
+    font-size:clamp(24px,4vw,40px);
+    margin-bottom:25px;
+    background:linear-gradient(90deg,#ffffff,#00d4ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.about-content p{
+    color:var(--text-light);
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:30px 0;
+    text-align:center;
+    color:#7d93aa;
+    font-size:13px;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container nav-inner">
+    <a href="index.html"><div class="logo"> NUVANTA </div></a>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sirvices.html">Services</a></li>
+        <li><a href="pcb.html">PCB</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+</nav>
+
+<section class="hero reveal">
+<canvas id="particles"></canvas>
+<div class="hero-content">
+    <h1>Redefining the Future</h1>
+    <p>Engineering digital systems, PCB fabrication solutions and embedded innovations.</p>
+    <a href="contact.html" class="btn">Get Started</a>
+</div>
+</section>
+<section class="about-section reveal">
+<div class="container">
+<div class="about-glass">
+
+    <div class="about-content">
+        <h2>About Nuvanta</h2>
+
+        <p>
+        Nuvanta Technologies is built to bridge digital intelligence and hardware innovation.
+        We focus on developing scalable web systems, PCB fabrication services and embedded
+        platforms engineered for long-term growth.
+        </p>
+
+        <p>
+        Our approach combines structured execution, clean architecture and practical
+        engineering to deliver reliable, future-ready solutions.
+        </p>
+
+    </div>
+
+</div>
+</div>
+</section>
+
+<section class="glass-section reveal">
+<div class="container">
+<div class="glass-box">
+
+<div class="features">
+<h2>Our Core Capabilities</h2>
+<div class="grid">
+
+<a href="sirvices.html" class="card-link">
+<div class="card">
+<h3>Digital Solutions</h3>
+<p>Modern web systems and automation platforms.</p>
+</div>
+</a>
+
+<a href="pcb.html" class="card-link">
+<div class="card">
+<h3>PCB Fabrication</h3>
+<p>Gerber upload and multi-layer manufacturing.</p>
+</div>
+</a>
+
+<a href="#" class="card-link">
+<div class="card">
+<h3>Embedded & IoT</h3>
+<p>Smart hardware and microcontroller innovation.</p>
+</div>
+</a>
+
+<a href="store.html" class="card-link">
+<div class="card">
+<h3>Nuvanta Store</h3>
+<p>Curated electronics tools and innovation kits.</p>
+</div>
+</a>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Nuvanta Technologies
+</footer>
+
+<script>
+
+/* Scroll Reveal */
+function revealOnScroll(){
+    document.querySelectorAll(".reveal").forEach(el=>{
+        if(el.getBoundingClientRect().top < window.innerHeight-100){
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll",revealOnScroll);
+revealOnScroll();
+
+/* Particle System */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let particles=[];
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        size:Math.random()*2,
+        speedY:Math.random()*0.5
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="rgba(0,200,255,0.6)";
+    particles.forEach(p=>{
+        p.y+=p.speedY;
+        if(p.y>canvas.height) p.y=0;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+
+</script>
+
+</body>
+</html>

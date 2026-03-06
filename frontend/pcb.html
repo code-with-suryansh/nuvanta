@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCB Fabrication | Nuvanta Technologies</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= ROOT ================= */
+
+:root{
+    --primary:#00cfff;
+    --bg-dark:#050b18;
+    --bg-secondary:#071428;
+    --text-light:#9fb3c8;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg-dark);
+    color:white;
+    overflow-x:hidden;
+}
+
+h1,h2,h3{
+    font-family:'Poppins',sans-serif;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:linear-gradient(270deg,#050b18,#071428,#0a1f3c,#071428);
+    background-size:600% 600%;
+    animation:bgMove 18s ease infinite;
+    z-index:-3;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* ================= NAV ================= */
+
+nav{
+    position:fixed;
+    width:100%;
+    padding:18px 0;
+    backdrop-filter:blur(12px);
+    background:rgba(5,11,24,0.6);
+    z-index:1000;
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-weight:800;
+    font-size:20px;
+    background:linear-gradient(90deg,#00a6ff,#00e0ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#cbd6e2;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding-top:150px;
+    padding-bottom:60px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(30px,5vw,60px);
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#ffffff,#00d4ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:var(--text-light);
+}
+
+/* ================= GLASS SECTIONS ================= */
+
+.glass{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    padding:60px 40px;
+    margin:60px 0;
+}
+
+/* ================= DESIGNER BOX ================= */
+
+.designer-box{
+    position:relative;
+    padding:50px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(0,200,255,0.15);
+    overflow:hidden;
+    transition:.4s;
+}
+
+.designer-box::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:25px;
+    padding:2px;
+    background:linear-gradient(90deg,transparent,#00cfff,transparent);
+    background-size:200% 100%;
+    animation:borderMove 5s linear infinite;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+}
+
+@keyframes borderMove{
+    0%{background-position:0% 0}
+    100%{background-position:200% 0}
+}
+
+.designer-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 40px rgba(0,200,255,0.4);
+}
+
+.designer-content{
+    text-align:center;
+}
+
+.designer-content h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.designer-content p{
+    color:var(--text-light);
+    max-width:600px;
+    margin:auto;
+    margin-bottom:25px;
+}
+
+.coming-badge{
+    display:inline-block;
+    padding:8px 20px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#00a6ff,#00d4ff);
+    font-weight:600;
+    font-size:14px;
+    box-shadow:0 0 20px rgba(0,200,255,0.5);
+}
+
+/* ================= UPLOAD AREA ================= */
+
+.upload-box{
+    border:2px dashed rgba(0,200,255,0.4);
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    transition:.3s;
+}
+
+.upload-box:hover{
+    border-color:var(--primary);
+    box-shadow:0 0 25px rgba(0,200,255,0.4);
+}
+
+.upload-box input{
+    display:none;
+}
+
+.upload-box label{
+    cursor:pointer;
+    color:var(--primary);
+    font-weight:600;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.select-group{
+    display:flex;
+    flex-direction:column;
+}
+
+select{
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#0c1c32;
+    color:white;
+    margin-top:8px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    margin-top:40px;
+    display:inline-block;
+    padding:14px 32px;
+    border-radius:40px;
+    background:linear-gradient(90deg,#00a6ff,#00d4ff);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 0 25px rgba(0,200,255,0.4);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    padding:30px 0;
+    text-align:center;
+    color:#7d93aa;
+    font-size:13px;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container nav-inner">
+    <a href="index.html"><div class="logo"> NUVANTA </div></a>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sirvices.html">Services</a></li>
+        <li><a href="pcb.html">PCB</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+</nav>
+
+<section class="hero reveal">
+<div class="container">
+    <h1>PCB Fabrication Services</h1>
+    <p>Design online or upload your Gerber files for manufacturing.</p>
+</div>
+</section>
+
+<!-- DESIGNER FIRST -->
+
+<section class="container reveal">
+<div class="glass">
+
+    <div style="text-align:center; margin-bottom:40px;">
+        <h2 style="
+            font-size:clamp(24px,4vw,36px);
+            background:linear-gradient(90deg,#ffffff,#00d4ff);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        ">
+            Online PCB Designer
+        </h2>
+        <p style="color:var(--text-light); margin-top:10px;">
+            Create or edit your PCB directly inside Nuvanta platform.
+        </p>
+    </div>
+
+    <div class="designer-box">
+        <div class="designer-content">
+            <h3>Design. Edit. Export.</h3>
+            <p>
+                Browser-based schematic capture, PCB layout editor and Gerber export —
+                fully integrated with Nuvanta Fabrication Services.
+            </p>
+
+            <div class="coming-badge">Coming Soon</div>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<!-- UPLOAD SECOND -->
+
+<section class="container reveal">
+<div class="glass">
+
+    <div class="upload-box">
+        <p>Upload Gerber ZIP File</p>
+        <label for="fileUpload">Click to Select File</label>
+        <input type="file" id="fileUpload" accept=".zip">
+    </div>
+
+    <div class="grid">
+        <div class="select-group">
+            <label>Layers</label>
+            <select>
+                <option>1 Layer</option>
+                <option>2 Layer</option>
+                <option>4 Layer</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label>Board Thickness</label>
+            <select>
+                <option>1.6mm</option>
+                <option>1.2mm</option>
+                <option>0.8mm</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label>Solder Mask Color</label>
+            <select>
+                <option>Green</option>
+                <option>Blue</option>
+                <option>Black</option>
+                <option>Red</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label>Quantity</label>
+            <select>
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+            </select>
+        </div>
+    </div>
+
+    <div style="text-align:center;">
+        <a href="#" class="btn">Request Quote</a>
+    </div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Nuvanta Technologies
+</footer>
+
+<script>
+function revealOnScroll(){
+    document.querySelectorAll(".reveal").forEach(el=>{
+        if(el.getBoundingClientRect().top < window.innerHeight-100){
+            el.classList.add("active");
+        }
+    });
+}
+window.addEventListener("scroll",revealOnScroll);
+revealOnScroll();
+</script>
+
+</body>
+</html>
